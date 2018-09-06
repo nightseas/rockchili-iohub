@@ -1,0 +1,18 @@
+# Backup Files
+*.bak
+
+# Compiled Object files
+*.o
+*.obj
+
+# Output files
+*.qws
+
+# Log files
+*.rpt
+
+# Database & output folders
+db/*
+incremental_db/*
+output_files/*
+simulation/*
