@@ -63,7 +63,7 @@ parameter FREQ_SYSCLK = 25_000_000;
 parameter TIME_SYSCLK = 1_000_000_000 / FREQ_SYSCLK;
 
 // Power failure watchdog timeout: 100ms
-parameter TIME_PWR_WDT = 100_000_000;
+parameter TIME_PWR_WDT = 1_000_000_000;
 //parameter TIME_PWR_WDT = 100_000; // 100us for simulation
 
 //---------- Global Clock and Reset -----------
@@ -133,8 +133,8 @@ reg[1:0] pwr_ctrl_reg;
 reg[14:0] pwr_err_reg;
 reg[MM_DATA_WIDTH-1:0] mm_s_rdata_o; 
 
-reg[23:0] pwr_delay_cnt;
-reg[23:0] pwr_wdt_cnt;
+reg[31:0] pwr_delay_cnt;
+reg[31:0] pwr_wdt_cnt;
 reg pwr_delay_en, pwr_wdt_en, pwr_delay_ot, pwr_wdt_ot;
 
 reg pwr_auto_start;
@@ -265,9 +265,9 @@ begin
 		
 		// Stage 1: (PGOOD_PSU0 or PGOOD_PSU1) and PGOOD_P3V3_EA and PGOOD_P1V8_EA active, to triger on board DCDC power rails
 			// TBD: Ignore PSU power good singals due to Delta PSU PG/PRNST issue
-			// pwr_good_stage[1] <= (pwr_good_i[14] | pwr_good_i[13]) & pwr_good_i[1] & pwr_good_i[0];
-		pwr_good_stage[1] <= pwr_good_i[1] & pwr_good_i[0];
-		
+			// pwr_good_stage[1] <= pwr_good_i[1] & pwr_good_i[0];
+		pwr_good_stage[1] <= (pwr_good_i[14] | pwr_good_i[13]) & pwr_good_i[1] & pwr_good_i[0];
+				
 		// Stage 2: PGOOD_P3V7 and PGOOD_P3V3_VCC and PGOOD_P3V3 active
 		pwr_good_stage[2] <= pwr_good_i[4] & pwr_good_i[3] & pwr_good_i[2];
 		

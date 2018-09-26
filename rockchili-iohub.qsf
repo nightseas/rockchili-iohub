@@ -41,7 +41,7 @@ set_global_assignment -name DEVICE 5M2210ZF256I5
 set_global_assignment -name TOP_LEVEL_ENTITY rockchili_iohub_top
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 18.0.0
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "16:09:50  SEPTEMBER 06, 2018"
-set_global_assignment -name LAST_QUARTUS_VERSION "18.0.0 Lite Edition"
+set_global_assignment -name LAST_QUARTUS_VERSION "18.1.0 Lite Edition"
 set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
 set_global_assignment -name MIN_CORE_JUNCTION_TEMP "-40"
 set_global_assignment -name MAX_CORE_JUNCTION_TEMP 125
@@ -148,3 +148,4 @@ set_global_assignment -name RESERVE_ALL_UNUSED_PINS "AS INPUT TRI-STATED"
 set_global_assignment -name EDA_TEST_BENCH_FILE simulation/modelsim/rockchili_iohub_top.vt -section_id rockchili_iohub_top_vlg_tst
 set_global_assignment -name ENABLE_OCT_DONE OFF
 set_global_assignment -name USE_CONFIGURATION_DEVICE ON
+set_global_assignment -name RESERVE_ALL_UNUSED_PINS_NO_OUTPUT_GND "AS INPUT TRI-STATED"
